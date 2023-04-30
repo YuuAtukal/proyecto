@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Registro Cowork</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+
+
+  </head>
+  <body>
+    <main class="flex-shrink-0">
+      <!-- Navigation-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+          <a class="navbar-brand" href="index.html">Space Work</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span
+              class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="inicio.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+              <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                  <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
+                  <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                  <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
+                  <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <section class="py-5">
+        <div class="container px-5">
+          <!-- Contact form-->
+          <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+            <div class="text-center mb-5">
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                  class="bi bi-envelope"></i></div>
+              <h1 class="fw-bolder">Registra tu Cowork</h1>
+              <p class="lead fw-normal text-muted mb-0">Cuéntanos sobre tu espacio</p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+              <div class="col-lg-8 col-xl-6">
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                  <!-- Nombre input-->
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                      data-sb-validations="required" />
+                    <label for="name">Nombre completo</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Esta casilla es
+                      requerida.</div>
+                  </div>
+                  <!-- Unicacion input -->
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="lugar" type="text" placeholder="Enter your name..."
+                      data-sb-validations="required" />
+                    <label for="name">Ubicación (país,ciudad)</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Esta casilla es
+                      requerida.</div>
+                  </div>
+                  <!-- Email input-->
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="email" type="email" placeholder="name@example.com"
+                      data-sb-validations="required,email" />
+                    <label for="email">Correo electrónico</label>
+                    <div class="invalid-feedback" data-sb-feedback="email:required">Esta casilla es
+                      requerida.</div>
+                    <div class="invalid-feedback" data-sb-feedback="email:email">Email no es valido.
+                    </div>
+                  </div>
+                  <!-- Numero telefono input-->
+                  <div class="form-floating mb-3">
+                    <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
+                      data-sb-validations="required" />
+                    <label for="phone">Número de teléfono</label>
+                    <div class="invalid-feedback" data-sb-feedback="phone:required">Esta casilla es
+                      requerida.</div>
+                  </div>
+  
+                  <!-- Servicios que se ofrecen -->
+  
+                  <h3>Servicios que ofrece</h3>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Parqueadero
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Cafetería
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Pet friendly
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Secretaría
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Ascensor
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Seguridad
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Duchas
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Baños
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Sala de juntas
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Zona de recreación
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Recepción de mensajería física
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Computadoras
+                    </label>
+                  </div>
+                  <br>
+  
+                  <!-- Descripcion input-->
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" id="message" type="text"
+                      placeholder="Enter your message here..." style="height: 10rem"
+                      data-sb-validations="required"></textarea>
+                    <label for="message">Descripción del lugar (descripción e información
+                      relevante)</label>
+                    <div class="invalid-feedback" data-sb-feedback="message:required">Esta casilla es
+                      requerida.</div>
+                  </div>
+                  <!-- Submit success message-->
+                  <!---->
+                  <!-- This is what your users will see when the form-->
+                  <!-- has successfully submitted-->
+                  <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center mb-3">
+                      <div class="fw-bolder">Form submission successful!</div>
+                      To activate this form, sign up at
+                      <br />
+                      <a
+                        href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                    </div>
+                  </div>
+                  <!-- Submit error message-->
+                  <!---->
+                  <!-- This is what your users will see when there is-->
+                  <!-- an error submitting the form-->
+                  <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                  </div>
+                  <!-- Submit Button-->
+                  <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton"
+                      type="submit">Submit</button></div>
+                </form>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Contact cards-->
+          <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
+            <div class="col">
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                  class="bi bi-chat-dots"></i></div>
+              <div class="h5 mb-2">Chat with us</div>
+              <p class="text-muted mb-0">Chat live with one of our support specialists.</p>
+            </div>
+            <div class="col">
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                  class="bi bi-people"></i></div>
+              <div class="h5">Ask the community</div>
+              <p class="text-muted mb-0">Explore our community forums and communicate with other users.</p>
+            </div>
+            <div class="col">
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                  class="bi bi-question-circle"></i>
+              </div>
+              <div class="h5">Support center</div>
+              <p class="text-muted mb-0">Browse FAQ's and support articles to find solutions.</p>
+            </div>
+            <div class="col">
+              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                  class="bi bi-telephone"></i></div>
+              <div class="h5">Call us</div>
+              <p class="text-muted mb-0">Call us during normal business hours at (555) 892-9403.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer class="bg-dark py-4 mt-auto">
+      <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto">
+            <div class="small m-0 text-white">Copyright &copy; Your Website 2023</div>
+          </div>
+          <div class="col-auto">
+            <a class="link-light small" href="#!">Privacy</a>
+            <span class="text-white mx-1">&middot;</span>
+            <a class="link-light small" href="#!">Terms</a>
+            <span class="text-white mx-1">&middot;</span>
+            <a class="link-light small" href="#!">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="container p-5">
+      <div class="row text-center mb-5">
+      </div>
+      <div class="row g-5">
+        <div class="col-4">
+          <div class="border bg-light p-4">
+            <form id="miFormulario">
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre de la Tarea"
+                class="form-control"
+              />
+              <br />
+              <textarea
+                name="detalle"
+                cols="30"
+                rows="8"
+                placeholder="Detalle"
+                class="form-control"
+              ></textarea>
+              <br />
+              <button type="submit" class="btn btn-success">Guardar</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="border bg-light p-4">
+            <ul class="list-group" id="tareas"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./script_cliente.js"></script>
+  </body>
+</html>
