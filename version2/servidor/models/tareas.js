@@ -5,11 +5,7 @@ const Schema = mongoose.Schema;
 
 let modeloTareas = new Schema({
     nombre: String,
-    detalle: String,
-    finalizada: {
-        type: Boolean,
-        default: false,
-    }, 
+    detalle: String, 
     fecha: String,
 })
 
