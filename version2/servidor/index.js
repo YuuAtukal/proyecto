@@ -22,6 +22,7 @@ app.use("/", express.static(path.resolve("../cliente/")));
 
 //Modelos de datos
 const Tarea = require("./models/tareas");
+const RegisCliente = require("./models/regisCliente")
 
 //Rutas
 
