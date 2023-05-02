@@ -7,6 +7,7 @@ let RegisCliente = new Schema({
     nombre: String,
     apellido: String,
     email: String,
+    contracena: String,
     cedula: String,
     telefono: String,
 
