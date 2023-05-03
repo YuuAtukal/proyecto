@@ -21,15 +21,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 
 //Modelos de datos
-const Tarea = require("./models/tareas");
+const RegisOficina = require("./models/regisOficina");
 const RegisCliente = require("./models/regisCliente")
 
-//Rutas
+//rutas
 
 /* ------ READ ------ */
-//Sitio web principal (index)
-app.get("/", function (req, res) {
+//Sitio web registro oficina
+app.get("/registroOficina", function (req, res) {
   res.sendFile(path.resolve("../cliente/registro-cowork.html"));
+});
+//Ruta ----> Guardar una oficina  en la BD oficinas
+app.post("/registroOficina", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_oficina = new RegisOficina(datos_enviados);
+  await nuevo_oficina.save();
+  res.send("Registro exitoso");
+  console.log(datos_enviados)
 });
 
 
@@ -38,7 +46,7 @@ app.get("/registro", function (req, res) {
   res.sendFile(path.resolve("../cliente/registrocliente.html"));
 });
 
-//Ruta ----> Guardar un nuevo Gasto en la BD clientes
+//Ruta ----> Guardar un nuevo cliente en la BD clientes
 app.post("/registro", async function (req, res) {
   let datos_enviados = req.body;
   let nuevo_cliente = new RegisCliente(datos_enviados);
