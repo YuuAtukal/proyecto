@@ -19,6 +19,7 @@ mongoose
 //Configuraciones 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
+app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
@@ -36,11 +37,24 @@ app.post("/registroOficina", async function (req, res) {
   let oficina_enviada = req.body;
   let nuevo_oficina = new RegisOficina(oficina_enviada);
   await nuevo_oficina.save();
-  res.send("Registro exitoso");
+  let ident = await RegisOficina.find({email : req.body.email},{_id:1})
+  let mensaje = {id: ident[0]._id, txt:"envio exitoso"}
+  res.send(mensaje);
   console.log(oficina_enviada)
 });
-app.get("/detalle", function (req, res) {
-  res.sendFile(path.resolve("../cliente/nueva/Lumia/Lumia/index.html"));
+// ruta para el detalle
+app.get("/detalle/:id", function (req, res) {
+  let id_oficina = req.params.id
+  res.sendFile(path.resolve("../cliente/nueva/index.html"));
+  console.log(id_oficina)
+});
+
+// ruta para enviar los datos a detalle
+app.post("/detalle/:id", async function (req, res) {
+  let id_oficina = req.params.id
+  let datos = await RegisOficina.find({_id : id_oficina})
+  res.send(datos);
+  console.log(id_oficina)
 });
 
 //Sitio web registro

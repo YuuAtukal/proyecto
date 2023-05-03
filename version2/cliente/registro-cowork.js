@@ -11,8 +11,11 @@ $(document).ready(function () {
         method: "post",
         data: datos_formulario,
         success: function (respuesta) {
-          alert(respuesta);
-          window.location.href = "http://localhost:3000/registroOficina";
+          let resp = respuesta;
+          console.log(resp.id);
+          alert(resp.txt);
+
+          window.location.href = "http://localhost:3000/detalle/"+resp.id;
         },
       });
     });
