@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -133,5 +133,40 @@
    * Inicia el Pure Counter 
    */
   new PureCounter();
+
+  // Obtenemos los elementos del DOM que vamos a utilizar
+  const selectOpcion = document.getElementById('opcion');
+  const input = document.getElementById('cantidad');
+  const total = document.getElementById('total');
+
+  // Agregamos un event listener al select y al input
+  selectOpcion.addEventListener('change', calcularTotal);
+  input.addEventListener('input', calcularTotal);
+
+  // Función que calcula el total
+  function calcularTotal() {
+    // Obtenemos el valor seleccionado en el select y la cantidad ingresada en el input
+    const valor = selectOpcion.value;
+    const cantidad = Number(input.value);
+
+    // Creamos una variable para almacenar el total
+    let totalCalculado = 0;
+
+    // Dependiendo del valor seleccionado, calculamos el total multiplicando la cantidad ingresada por el valor correspondiente
+    //lo que hay que cambiar son los numeros 1,2,3 y 4, y ahi poner el valor de cada mes, semana etc
+    if (valor === 'meses') {
+      totalCalculado = cantidad * 1;
+    } else if (valor === 'semanas') {
+      totalCalculado = cantidad * 2;
+    } else if (valor === 'dias') {
+      totalCalculado = cantidad * 3;
+    } else if (valor === 'horas') {
+      totalCalculado = cantidad * 4;
+    }
+
+    // Actualizamos el contenido del elemento con el total calculado
+    total.textContent = `$${totalCalculado}`;
+  }
+
 
 })()
