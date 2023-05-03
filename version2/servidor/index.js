@@ -33,13 +33,15 @@ app.get("/registroOficina", function (req, res) {
 });
 //Ruta ----> Guardar una oficina  en la BD oficinas
 app.post("/registroOficina", async function (req, res) {
-  let datos_enviados = req.body;
-  let nuevo_oficina = new RegisOficina(datos_enviados);
+  let oficina_enviada = req.body;
+  let nuevo_oficina = new RegisOficina(oficina_enviada);
   await nuevo_oficina.save();
   res.send("Registro exitoso");
-  console.log(datos_enviados)
+  console.log(oficina_enviada)
 });
-
+app.get("/detalle", function (req, res) {
+  res.sendFile(path.resolve("../cliente/nueva/Lumia/Lumia/index.html"));
+});
 
 //Sitio web registro
 app.get("/registro", function (req, res) {
