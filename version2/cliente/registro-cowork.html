@@ -81,27 +81,28 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                  <!-- Nombre input-->
+                <form id="formOficina" data-sb-form-api-token="API_TOKEN">
+                  <!-- titulo input-->
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                    <input class="form-control" name="titulo" type="text" placeholder="Enter your name..."
                       data-sb-validations="required" />
-                    <label for="name">Nombre completo</label>
+                    <label for="name">Titulo</label>
                     <div class="invalid-feedback" data-sb-feedback="name:required">Esta casilla es
                       requerida.</div>
                   </div>
+                 
                   <!-- Unicacion input -->
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="lugar" type="text" placeholder="Enter your name..."
-                      data-sb-validations="required" name="nombrecliente"/>
-                    <label for="name">Ubicación (país,ciudad)</label>
+                    <input class="form-control" id="lugar" type="text" placeholder="ubicacion"
+                      data-sb-validations="required" name="direccion"/>
+                    <label for="name">direccion</label>
                     <div class="invalid-feedback" data-sb-feedback="name:required">Esta casilla es
                       requerida.</div>
                   </div>
                   <!-- Email input-->
                   <div class="form-floating mb-3">
                     <input class="form-control" id="email" type="email" placeholder="name@example.com"
-                      data-sb-validations="required,email" name="correocliente"/>
+                      data-sb-validations="required,email" name="email"/>
                     <label for="email">Correo electrónico</label>
                     <div class="invalid-feedback" data-sb-feedback="email:required">Esta casilla es
                       requerida.</div>
@@ -111,83 +112,91 @@
                   <!-- Numero telefono input-->
                   <div class="form-floating mb-3">
                     <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
-                      data-sb-validations="required" name="telefonocliente"/>
+                      data-sb-validations="required" name="telefono"/>
                     <label for="phone">Número de teléfono</label>
                     <div class="invalid-feedback" data-sb-feedback="phone:required">Esta casilla es
                       requerida.</div>
                   </div>
+                    <!-- imagen input-->
+                    <div class="form-floating mb-3">
+                      <input class="form-control" name="imagen" type="text" placeholder="Enter your name..."
+                        data-sb-validations="required" />
+                      <label for="name">link de la imagen</label>
+                      <div class="invalid-feedback" data-sb-feedback="name:required">Esta casilla es
+                        requerida.</div>
+                      </div>
   
                   <!-- Servicios que se ofrecen -->
   
                   <h3>Servicios que ofrece</h3>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="parqueadero">
+                    <input class="form-check-input" type="checkbox" value="parqueadero" id="flexCheckDefault" name="servicios">
                     <label class="form-check-label" for="flexCheckDefault">
                       Parqueadero
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="cafeteria">
+                    <input class="form-check-input" type="checkbox" value="cafeteria" id="flexCheckChecked" name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
                       Cafetería
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="pet-friendly">
+                    <input class="form-check-input" type="checkbox" value="pet-friendly" id="flexCheckDefault" name="servicios">
                     <label class="form-check-label" for="flexCheckDefault">
                       Pet friendly
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="secretaria">
+                    <input class="form-check-input" type="checkbox" value="secretaria" id="flexCheckChecked" name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
                       Secretaría
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="ascensor">
+                    <input class="form-check-input" type="checkbox" value="ascensor" id="flexCheckDefault" name="servicios">
                     <label class="form-check-label" for="flexCheckDefault">
                       Ascensor
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="seguridad">
+                    <input class="form-check-input" type="checkbox" value="seguridad" id="flexCheckChecked" name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
                       Seguridad
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="duchas">
+                    <input class="form-check-input" type="checkbox" value="duchas" id="flexCheckDefault" name="servicios">
                     <label class="form-check-label" for="flexCheckDefault">
                       Duchas
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"name="banios">
+                    <input class="form-check-input" type="checkbox" value="banios" id="flexCheckChecked"name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
                       Baños
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="sala-juntas">
+                    <input class="form-check-input" type="checkbox" value="sala-juntas" id="flexCheckDefault" name="servicios">
                     <label class="form-check-label" for="flexCheckDefault">
                       Sala de juntas
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="recreacion">
+                    <input class="form-check-input" type="checkbox" value="recreacion" id="flexCheckChecked" name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
                       Zona de recreación
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="mensajeria">
+                    <input class="form-check-input" type="checkbox" value="mensajeria" id="flexCheckDefault" name="servicios">
                     <label class="form-check-label" for="flexCheckDefault">
                       Recepción de mensajería física
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="computadoras">
+                    <input class="form-check-input" type="checkbox" value="computadoras" id="flexCheckChecked" name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
                       Computadoras
                     </label>
@@ -198,7 +207,7 @@
                   <div class="form-floating mb-3">
                     <textarea class="form-control" id="message" type="text"
                       placeholder="Enter your message here..." style="height: 10rem"
-                      data-sb-validations="required"></textarea>
+                      data-sb-validations="required" name="descripcion"></textarea>
                     <label for="message">Descripción del lugar (descripción e información
                       relevante)</label>
                     <div class="invalid-feedback" data-sb-feedback="message:required">Esta casilla es
@@ -208,24 +217,12 @@
                   <!---->
                   <!-- This is what your users will see when the form-->
                   <!-- has successfully submitted-->
-                  <div class="d-none" id="submitSuccessMessage">
-                    <div class="text-center mb-3">
-                      <div class="fw-bolder">Form submission successful!</div>
-                      To activate this form, sign up at
-                      <br />
-                      <a
-                        href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                    </div>
-                  </div>
+                
                   <!-- Submit error message-->
                   <!---->
-                  <!-- This is what your users will see when there is-->
-                  <!-- an error submitting the form-->
-                  <div class="d-none" id="submitErrorMessage">
-                    <div class="text-center text-danger mb-3">Error sending message!</div>
-                  </div>
+             
                   <!-- Submit Button-->
-                  <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton"
+                  <div class="d-grid"><button class="btn btn-primary btn-lg " id="submitButton"
                       type="submit">Submit</button></div>
                 </form>
               </div>
@@ -283,7 +280,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="./script_cliente.js"></script>
+
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="./registro-cowork.js"></script>
   </body>
 </html>
