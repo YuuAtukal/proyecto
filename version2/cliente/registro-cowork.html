@@ -98,6 +98,7 @@
                     <label for="name">direccion</label>
                     <div class="invalid-feedback" data-sb-feedback="name:required">Esta casilla es
                       requerida.</div>
+                      
                   </div>
                   <!-- Email input-->
                   <div class="form-floating mb-3">
@@ -138,8 +139,10 @@
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="cafeteria" id="flexCheckChecked" name="servicios">
                     <label class="form-check-label" for="flexCheckChecked">
+                      
                       Cafetería
                     </label>
+                    
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="pet-friendly" id="flexCheckDefault" name="servicios">
@@ -200,6 +203,43 @@
                     <label class="form-check-label" for="flexCheckChecked">
                       Computadoras
                     </label>
+                  </div>
+                  <br>
+                  <!--tipo de alquiler-->
+                  <h3>Tipos de alquiler</h3>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Hora" id="flexCheckDefault" name="tipoAlquiler">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Hora
+                    </label>
+                    <input class="form-control" name="precioAlquiler" type="number" placeholder="precio por una hora..."
+                        data-sb-validations="required" />
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Dia" id="flexCheckChecked" name="tipoAlquiler">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Dia
+                    </label>
+                    <input class="form-control" name="precioAlquiler" type="number" placeholder="precio por un dia..."
+                        data-sb-validations="required" />
+                    
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Semana" id="flexCheckDefault" name="tipoAlquiler">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Semana
+                    </label>
+                    <input class="form-control" name="precioAlquiler" type="number" placeholder="precio por una Semana..."
+                        data-sb-validations="required" />
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Mes" id="flexCheckChecked" name="tipoAlquiler">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Mes
+                    </label>
+                    <input class="form-control" name="precioAlquiler" type="number" placeholder="precio por un mes..."
+                        data-sb-validations="required" />
                   </div>
                   <br>
   

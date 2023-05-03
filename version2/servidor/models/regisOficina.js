@@ -10,6 +10,8 @@ let RegisOficina = new Schema({
     telefono: String,
     imagen: String,
     servicios: [String],
+    tipoAlquiler: [String],
+    precioAlquiler :[ Number],
   
 })
 
