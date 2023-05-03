@@ -397,9 +397,9 @@ h6 {
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-section {
+/* section {
   padding: 60px 0;
-}
+} */
 
 .section-bg {
   background-color: #f7fbfe;
@@ -672,6 +672,13 @@ section {
 /*--------------------------------------------------------------
 # Contacto
 --------------------------------------------------------------*/
+
+#selectOpcion{
+  padding-left: 300px;
+  padding-right: 115px;
+
+}
+
 .contact .info-wrap {
   padding: 30px;
   background: #fff;
@@ -684,12 +691,24 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #eaf4fb;
+  background: #eaf4fb;  
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
+}
+
+#servicios{
+  padding-top: 40px;
+}
+
+#titulo{
+  padding-top: 40px;
+}
+
+#comentarios{
+  padding-top: 80px;
 }
 
 .contact .info h4 {
@@ -698,6 +717,7 @@ section {
   font-weight: 600;
   margin-bottom: 5px;
   color: #384046;
+
 }
 
 .contact .info p {
@@ -705,6 +725,7 @@ section {
   margin-bottom: 0;
   font-size: 14px;
   color: #65747f;
+  
 }
 
 .contact .info:hover i {
