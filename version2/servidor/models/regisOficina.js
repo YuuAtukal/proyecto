@@ -7,6 +7,7 @@ let RegisOficina = new Schema({
     titulo: String,
     direccion: String, 
     email: String,
+    descripcion: String,
     telefono: String,
     imagen: String,
     servicios: [String],
