@@ -202,20 +202,14 @@ $(document).ready(function () {
   function servicios(array) {
     for (let i = 0; i < array.length; i++) {
       $("<div/>", {
-        class: "col-md-6 mt-4",
-      })
-        .append(
-          $("<div/>", {
-            class: "icon-box",
-          }).append(
-            $("<h4/>").append(
-              $("<a/>", {
-                text: array[i],
-              })
-            )
-          )
+        class: "icon-box",
+      }).append(
+        $("<h4/>").append(
+          $("<a/>", {
+            text: array[i],
+          })
         )
-        .appendTo("#servicios");
+      ).appendTo(i % 2 == 0 ? "#servicios-col-1" : "#servicios-col-2");
     }
   }
 
