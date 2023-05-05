@@ -90,6 +90,10 @@ app.post("/login", async function (req, res) {
 
  console.log(bd)
 });
+//Sitio web listado
+app.get("/listado", function (req, res) {
+  res.sendFile(path.resolve("../cliente/portfolio-overview.html"));
+});
 
 //puerto del servidor
 app.listen(3000, function () {
