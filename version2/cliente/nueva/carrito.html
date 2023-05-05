@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Pagos</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1>Detalles de compra</h1>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <img src="assets/img/portfolio/portfolio-2.jpg" alt="" width="700" height="400">
+            </div>
+          </div>
+          <div class="col-lg-4 border border-2 rounded">
+            <div class="portfolio-info">
+              <h3>Datos de tu reserva</h3>
+              <p>Duracion total de la estancia:</p>
+              <p><strong id="duracionEstancia">15 meses</strong></p>
+            </div>
+            <div class="border-top border-secondary my-3"></div>
+            <div class="portfolio-info">
+              <h3>Tu/s selección/es:</h3>
+              <ul id="coworkingList">
+                <li>
+                  Coworking calle 80
+                </li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <div class="container">
+                <div class="row bg-lightcyan py-3">
+                  <div class="col-auto">
+                    <h3 class="mb-0">Precio</h3>
+                  </div>
+                  <div class="col-auto">
+                    <h3 class="mb-0" id="precioCoworking">COP 149.000</h3>
+                    <p class="mb-0">+ COP 28.400 de impuestos y cargos</p>
+                  </div>
+                </div>
+                <h2>Desgloce del precio</h2>
+                <p>
+                  Incluye COP 28.400 de impuestos y cargos
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-6 footer-contact border border-2 rounded">
+            <h3 id="coworkingList2">Coworking seleccionado/s</h3>
+            <img src="assets/img/portfolio/portfolio-2.jpg" alt="" width="200" height="100">
+            <p>Coworking calle 80, La Candelaria, 050013 Bogotá, Colombia</p>
+
+            <h3 id="datosCliente">Introduce tus datos</h3>
+            <input placeholder="Introduce tu nombre" id="nombreCliente">
+            <input placeholder="Introduce el apellido" id="apellidoCliente">
+            <input placeholder="Correo electronico" id="correoCliente">
+            <p> <strong>Nota: </strong> El E-mail de confirmación se enviará al correo electrónico proporcionado.</p>
+            <h2>Calendario de pagos</h2>
+            <p>
+              El pago será realizado por adelantado en todos los casos.
+            </p>
+          </div>
+          <div class="col-lg-4 border border-2 rounded ">
+            <div class="portfolio-info">
+              <h3>¿Cuánto cuesta cancelar?</h3>
+              <h5 class="mb-0"><em id="precioCoworking">COP 149.000</em></h5>
+            </div>
+            <div class="portfolio-description bg-lightcyan py-3 ">
+              <h2>Revisa las normas de convivencia</h2>
+              <p>El anfitrión quiere que aceptes estas normas de la casa:</p>
+              <ul>
+                <li>No se puede fumar</li>
+                <li>No se pueden hacer fiestas</li>
+                <li>No se puede hacer ruido de 00:00 a 06:00</li>
+                <li>Si el espacio es Pet-Friendly recuerde hacerse cargo de su mascota</li>
+              </ul>
+              <p>Al continuar estas aceptando estas normas.</p>
+
+            </div>
+          </div>
+          <div class="col-lg-8 border border-2 rounded">
+            <div class="col-lg-12 col-md-6 footer-contact">
+              <h3>Peticiones especiales</h3>
+              <p>Las peticiones especiales no se pueden garantizar, pero el alojamiento hará todo lo posible por satisfacerlas. ¡También puedes enviarnos tu petición especial cuando hayas realizado la reserva!.<br>
+              </p>
+              <textarea id="peticionEspecial"></textarea>
+              <div class="text-center php-email-form"><button type="submit" class=" btn btn-primary">Alquilar coworking</button></div> 
+            </div>
+            
+          </div>
+          
+          <div class="col-lg-4 border border-2 rounded">
+            <div class="portfolio-description">
+              <h2>Tu hora de llegada</h2>
+              <p>
+                Puedes hacer el check-in entre las 13:00 y las 17:00 
+              </p>
+              <h6>Añade tu hora de llegada aproximada</h6>
+              <select>
+                <option value="0">Indica una hora</option>
+                <option value="idk">No lo sé</option>
+                <option value="1">01:00-02:00</option>
+                <option value="2">02:00-03:00</option>
+                <option value="3">03:00-04:00</option>
+                <option value="4">04:00-05:00</option>
+                <option value="5">05:00-06:00</option>
+                <option value="6">06:00-07:00</option>
+                <option value="7">07:00-08:00</option>
+                <option value="8">08:00-09:00</option>
+                <option value="9">09:00-10:00</option>
+                <option value="10">10:00-11:00</option>
+                <option value="11">11:00-12:00</option>
+                <option value="12">12:00-13:00</option>
+                <option value="13">13:00-14:00</option>
+                <option value="14">14:00-15:00</option>
+                <option value="15">15:00-16:00</option>
+                <option value="16">16:00-17:00</option>
+                <option value="17">17:00-18:00</option>
+                <option value="18">18:00-19:00</option>
+                <option value="19">19:00-20:00</option>
+                <option value="20">20:00-21:00</option>
+                <option value="21">21:00-22:00</option>
+                <option value="22">22:00-23:00</option>
+                <option value="22">23:00-00:00</option>
+                <option value="00">00:00-01:00 (día siguiente)</option>
+                <option value="01">01:00-02:00 (día siguiente)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

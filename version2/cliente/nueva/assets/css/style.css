@@ -2,6 +2,18 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+
+
+img {
+  border-radius: 5%;
+}
+
+
+.bg-lightcyan {
+  background-color: #e0ffff; /* Código de color para el tono de aguamarina claro */
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
