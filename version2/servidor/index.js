@@ -23,7 +23,8 @@ app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
-const RegisCliente = require("./models/regisCliente")
+const RegisCliente = require("./models/regisCliente");
+const regisOficina = require("./models/regisOficina");
 
 //rutas
 
@@ -94,6 +95,16 @@ app.post("/login", async function (req, res) {
 app.get("/listado", function (req, res) {
   res.sendFile(path.resolve("../cliente/portfolio-overview.html"));
 });
+
+//Sitio web listado
+app.post("/listado", async function (req, res) {
+
+  let bdOficina = await regisOficina.find()
+  res.send(bdOficina)
+});
+
+
+
 
 //puerto del servidor
 app.listen(3000, function () {
