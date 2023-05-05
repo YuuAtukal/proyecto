@@ -19,6 +19,7 @@ mongoose
 //Configuraciones 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
+app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
@@ -33,13 +34,28 @@ app.get("/registroOficina", function (req, res) {
 });
 //Ruta ----> Guardar una oficina  en la BD oficinas
 app.post("/registroOficina", async function (req, res) {
-  let datos_enviados = req.body;
-  let nuevo_oficina = new RegisOficina(datos_enviados);
+  let oficina_enviada = req.body;
+  let nuevo_oficina = new RegisOficina(oficina_enviada);
   await nuevo_oficina.save();
-  res.send("Registro exitoso");
-  console.log(datos_enviados)
+  let ident = await RegisOficina.find({email : req.body.email},{_id:1})
+  let mensaje = {id: ident[0]._id, txt:"envio exitoso"}
+  res.send(mensaje);
+  console.log(oficina_enviada)
+});
+// ruta para el detalle
+app.get("/detalle/:id", function (req, res) {
+  let id_oficina = req.params.id
+  res.sendFile(path.resolve("../cliente/nueva/index.html"));
+  console.log(id_oficina)
 });
 
+// ruta para enviar los datos a detalle
+app.post("/detalle/:id", async function (req, res) {
+  let id_oficina = req.params.id
+  let datos = await RegisOficina.find({_id : id_oficina})
+  res.send(datos);
+  console.log(id_oficina)
+});
 
 //Sitio web registro
 app.get("/registro", function (req, res) {
@@ -73,6 +89,10 @@ app.post("/login", async function (req, res) {
   res.send(mensaje)
 
  console.log(bd)
+});
+//Sitio web listado
+app.get("/listado", function (req, res) {
+  res.sendFile(path.resolve("../cliente/portfolio-overview.html"));
 });
 
 //puerto del servidor

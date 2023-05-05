@@ -134,7 +134,7 @@
    */
   new PureCounter();
 
-  // Obtenemos los elementos del DOM que vamos a utilizar
+  /* // Obtenemos los elementos del DOM que vamos a utilizar
   const selectOpcion = document.getElementById('opcion');
   const input = document.getElementById('cantidad');
   const total = document.getElementById('total');
@@ -166,7 +166,82 @@
 
     // Actualizamos el contenido del elemento con el total calculado
     total.textContent = `$${totalCalculado}`;
-  }
+  } */
 
 
 })()
+
+$(document).ready(function () {
+  let url_actual = window.location.href;
+  var resp;
+
+  //Petición al servidor hecha con AJAX
+  $.ajax({
+    url: url_actual,
+    method: "post",
+
+    success: function (respuesta) {
+       resp = respuesta;
+      console.log(resp);
+
+      $("#titulo").text(resp[0].titulo);
+      $("#descripcion").text(resp[0].descripcion);
+      $("#imagen").attr("src", resp[0].imagen);
+      $("#direccion").text(resp[0].direccion);
+      let serv = resp[0].servicios;
+      servicios(serv);
+      let opc = resp[0].tipoAlquiler;
+      opciones(opc);
+      let precios = resp[0].precioAlquiler
+      calTotal(precios)
+    },
+  });
+ 
+
+
+  function servicios(array) {
+    for (let i = 0; i < array.length; i++) {
+      $("<div/>", {
+        class: "col-md-6 mt-4",
+      })
+        .append(
+          $("<div/>", {
+            class: "icon-box",
+          }).append(
+            $("<h4/>").append(
+              $("<a/>", {
+                text: array[i],
+              })
+            )
+          )
+        )
+        .appendTo("#servicios");
+    }
+  }
+
+  function opciones(array) {
+    var i = 0;
+
+    while (i < array.length) {
+      $("#opciones").append(
+        $("<option>", {
+          value: i,
+          text: array[i],
+        })
+      );
+      i++;
+    }
+  }
+  function calTotal(array){
+
+    $("#cantidad").change( function(){
+     let opcion= parseInt( $("#opciones").val())
+     let cantidad = parseInt( $("#cantidad").val())
+     let total = array[opcion] * cantidad
+     $("#total").text(total)
+
+
+    })
+
+  }
+});
