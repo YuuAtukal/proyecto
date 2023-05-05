@@ -39,7 +39,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="">Inicio</a></li>
+          <li><a class="nav-link scrollto active" href="">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Testimonios</a></li>
@@ -57,7 +57,8 @@
       <h2>Estaremos encantados de trabajar contigo</h2>
       <a href="#about" class="btn-get-started scrollto">Sobre nosotros</a>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
   <main id="main">
 
@@ -65,7 +66,7 @@
     <section id="about" class="about">
       <div class="container">
         <div class="section-title" id="titulo">
-          <h2 id="titulo">hola</h2>
+          <h1 id="titulo">hola</h1>
         </div>
 
         <div class="row">
@@ -73,7 +74,7 @@
             <img  class="img-fluid" alt="" id="imagen">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <h3>Descripción</h3>
+            <h4>Descripción</h4>
             <p id="descripcion">d</p>
             <section id="contact" class="contact section-bg">
                 <div class="col-lg-10">
@@ -134,7 +135,74 @@
 
       </div>
     </section><!-- Se acaban los servicios -->
+     <!-- ======= Seccion alquilar y dudas======= -->
+     <section id="contact" class="contact section-bg">
+      <div class="container">
+        <div class="row mt-5 justify-content-center">
+          <div class="col-lg-10">
+            <div class="info-wrap">
+              <div class="row">
+                <div class="section-title">
+                  <h2>Seleccione tiempo de alquiler</h2>
+                </div>
+                <div class="col-lg-5 info " id="selectOpcion">
+                  <select id="opciones" class=" btn btn-primary">
+                   <!--  <option value="meses">Meses</option>
+                    <option value="semanas">Semanas</option>
+                    <option value="dias">Días</option>
+                    <option value="horas">Horas</option> -->
+                  </select>
+                </div>
+                
+                <div class="col-lg-5 info">
+                
+                  <input id="cantidad" placeholder="Cantidad" type="number"></input>
+                </div>
+                <div class="col-lg-5 info">
+                  <h5>Total a pagar: <em id="total">$0</em></h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-15 info ">
+                  <div class="text-center php-email-form d-grid gap-2"><button type="submit" class=" btn btn-primary btn-lg">Alquilar coworking</button></div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- Seccion de dudas -->
+<div class="row mt-5 justify-content-center">
+  <div class="section-title">
+    <h2>Déjanos tus dudas</h2>
+  </div>
+  <div class="col-lg-10">
+    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+      </div>
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+      </div>
+      <div class="my-3">
+        <div class="loading">Cargando</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Su mensaje se ha enviado</div>
+      </div>
+      <div class="text-center"><button type="submit">Enviar mensaje</button></div>
+    </form>
+  </div>
 
+</div>
+
+</div>
     <!-- ======= Comentarios ======= -->
     <section id="testimonials" class="testimonials section-bg">
       <div class="container">
@@ -216,76 +284,8 @@
       </div>
     </section><!-- Se acaban los comentarios -->
 
-    <!-- ======= Seccion alquilar y dudas======= -->
-    <section id="contact" class="contact section-bg">
-      <div class="container">
-        <div class="row mt-5 justify-content-center">
-          <div class="col-lg-10">
-            <div class="info-wrap">
-              <div class="row">
-                <div class="section-title">
-                  <h2>Seleccione tiempo de alquiler</h2>
-                </div>
-                <div class="col-lg-5 info " id="selectOpcion">
-                  <select id="opciones" class=" btn btn-primary">
-                   <!--  <option value="meses">Meses</option>
-                    <option value="semanas">Semanas</option>
-                    <option value="dias">Días</option>
-                    <option value="horas">Horas</option> -->
-                  </select>
-                  
-                </div>
-                
-                <div class="col-lg-5 info">
-                
-                  <input id="cantidad" placeholder="Cantidad" type="number"></input>
-                </div>
-                <div class="col-lg-5 info">
-                  <h5>Total a pagar: <em id="total">$0</em></h5>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-15 info ">
-                  <div class="text-center php-email-form d-grid gap-2"><button type="submit" class=" btn btn-primary btn-lg">Alquilar coworking</button></div> 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-    <!-- Seccion de dudas -->
-        <div class="row mt-5 justify-content-center">
-          <div class="section-title">
-            <h2>Déjanos tus dudas</h2>
-          </div>
-          <div class="col-lg-10">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Cargando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Su mensaje se ha enviado</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
+    
     </section><!-- Se acaba seccion dudas y alquilar -->
 
   </main><!-- se acaba la etiqueta main -->
