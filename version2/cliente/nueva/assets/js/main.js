@@ -182,11 +182,12 @@ $(document).ready(function () {
 
     success: function (respuesta) {
        resp = respuesta;
-      console.log(resp);
+    
 
       $("#titulo").text(resp[0].titulo);
       $("#descripcion").text(resp[0].descripcion);
       $("#imagen").attr("src", resp[0].imagen);
+      $("#imagen").val(resp[0].imagen);
       $("#direccion").text(resp[0].direccion);
       let serv = resp[0].servicios;
       servicios(serv);
@@ -238,4 +239,30 @@ $(document).ready(function () {
     })
 
   }
+
+  
+    //Escribo todo lo necesario para enviar los datos al servidor
+    $("#formAlquiler").submit(function (e) {
+      e.preventDefault();
+  
+      let datos_formulario = $("#formAlquiler").serialize();
+  
+      //Petición al servidor hecha con AJAX
+      $.ajax({
+        url: "http://localhost:3000/compra",
+        method: "post",
+        data: datos_formulario,
+        success: function (respuesta) {
+        
+          alert(respuesta);
+
+          /* window.location.href = "http://localhost:3000/detalle/"+resp.id; */
+        }
+      });
+    
+  });
+
+
+
+
 });

@@ -63,15 +63,16 @@
   <main id="main">
 
     <!-- ======= Seccion descripcion ======= -->
+    <form action="" id="formAlquiler">
     <section id="about" class="about">
       <div class="container">
         <div class="section-title" id="titulo">
-          <h1 id="titulo">hola</h1>
+          <h1 id="titulo" name="titulo">hola</h1>
         </div>
 
         <div class="row">
           <div class="col-lg-6">
-            <img  class="img-fluid" alt="" id="imagen">
+            <img  class="img-fluid" alt="" id="imagen" name="imagen">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h4>Descripción</h4>
@@ -81,7 +82,7 @@
                   <div class="col-lg-4 info">
                     <i class="bi bi-geo-alt"></i>
                     <h4>Ubicación:</h4>
-                    <p id="direccion" ></p>
+                    <p id="direccion" name="direccion" ></p>
                   </div>
                 </div>
             </section>
@@ -118,7 +119,7 @@
                   <h2>Seleccione tiempo de alquiler</h2>
                 </div>
                 <div class="col-lg-5 info " id="selectOpcion">
-                  <select id="opciones" class=" btn btn-primary">
+                  <select id="opciones" class=" btn btn-primary" name="tipo">
                    <!--  <option value="meses">Meses</option>
                     <option value="semanas">Semanas</option>
                     <option value="dias">Días</option>
@@ -128,20 +129,22 @@
                 
                 <div class="col-lg-5 info">
                 
-                  <input id="cantidad" placeholder="Cantidad" type="number"></input>
+                  <input id="cantidad" placeholder="Cantidad" type="number" name="cantidad"></input>
                 </div>
                 <div class="col-lg-5 info">
-                  <h5>Total a pagar: <em id="total">$0</em></h5>
+                  <h5>Total a pagar: <em id="total" name="total">$0</em></h5>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-15 info ">
-                  <div class="text-center php-email-form d-grid gap-2"><button type="submit" class=" btn btn-primary btn-lg">Alquilar coworking</button></div> 
+                  <div class="text-center php-email-form d-grid gap-2"><button id="button" type="submit" class=" btn btn-primary btn-lg">Alquilar coworking</button></div> 
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+      </form>
 <!-- Seccion de dudas -->
 <div class="row mt-5 justify-content-center">
   <div class="section-title">

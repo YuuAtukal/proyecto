@@ -24,8 +24,7 @@ app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
 const RegisCliente = require("./models/regisCliente");
-const regisOficina = require("./models/regisOficina");
-
+const RegisCompra = require("./models/compras")
 //rutas
 
 /* ------ READ ------ */
@@ -56,6 +55,15 @@ app.post("/detalle/:id", async function (req, res) {
   let datos = await RegisOficina.find({_id : id_oficina})
   res.send(datos);
   console.log(id_oficina)
+});
+
+//Ruta ----> Guardar una compra 
+app.post("/compra", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_compra = new RegisCompra(datos_enviados);
+  await nuevo_compra.save();
+  res.send("compra exitosa");
+  console.log(datos_enviados)
 });
 
 //Sitio web registro
@@ -102,6 +110,8 @@ app.post("/listado", async function (req, res) {
   let bdOficina = await regisOficina.find()
   res.send(bdOficina)
 });
+
+
 
 
 
