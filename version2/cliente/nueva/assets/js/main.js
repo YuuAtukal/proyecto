@@ -173,7 +173,7 @@
 
 $(document).ready(function () {
   let url_actual = window.location.href;
-  var resp;
+  var resp=[];
 
   //Petición al servidor hecha con AJAX
   $.ajax({
@@ -181,7 +181,7 @@ $(document).ready(function () {
     method: "post",
 
     success: function (respuesta) {
-       resp = respuesta;
+      var resp = respuesta;
     
 
       $("#titulo").text(resp[0].titulo);
@@ -240,7 +240,7 @@ $(document).ready(function () {
 
   }
 
-  
+    console.log(resp)
     //Escribo todo lo necesario para enviar los datos al servidor
     $("#formAlquiler").submit(function (e) {
       e.preventDefault();
@@ -249,7 +249,7 @@ $(document).ready(function () {
   
       //Petición al servidor hecha con AJAX
       $.ajax({
-        url: "http://localhost:3000/compra",
+        url: "http://localhost:3000/compra:id",
         method: "post",
         data: datos_formulario,
         success: function (respuesta) {
