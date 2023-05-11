@@ -16,7 +16,7 @@ mongoose
     console.log(err);
   });
 
-//Configuraciones 
+//Configuraciones
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
@@ -24,7 +24,7 @@ app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
 const RegisCliente = require("./models/regisCliente");
-const RegisCompra = require("./models/compras")
+const RegisCompra = require("./models/compras");
 //rutas
 
 /* ------ READ ------ */
@@ -37,48 +37,45 @@ app.post("/registroOficina", async function (req, res) {
   let oficina_enviada = req.body;
   let nuevo_oficina = new RegisOficina(oficina_enviada);
   await nuevo_oficina.save();
-  let ident = await RegisOficina.find({email : req.body.email},{_id:1})
-  let mensaje = {id: ident[0]._id, txt:"envio exitoso"}
+  let ident = await RegisOficina.find({ email: req.body.email }, { _id: 1 });
+  let mensaje = { id: ident[0]._id, txt: "envio exitoso" };
   res.send(mensaje);
-  console.log(oficina_enviada)
+  console.log(oficina_enviada);
 });
 // ruta para el detalle
 app.get("/detalle/:id", function (req, res) {
-  let id_oficina = req.params.id
+  let id_oficina = req.params.id;
   res.sendFile(path.resolve("../cliente/nueva/index.html"));
-  console.log(id_oficina)
+  console.log(id_oficina);
 });
 
 // ruta para enviar los datos a detalle
 app.post("/detalle/:id", async function (req, res) {
-  let id_oficina = req.params.id
-  let datos = await RegisOficina.find({_id : id_oficina})
+  let id_oficina = req.params.id;
+  let datos = await RegisOficina.find({ _id: id_oficina });
   res.send(datos);
-  console.log(id_oficina)
+  console.log(id_oficina);
 });
-//Ruta ----> guardar la compra un la bd compra 
+//Ruta ----> guardar la compra un la bd compra
 app.put("/detalle/:id", async function (req, res) {
-  let id_compra = req.params.id
+  let id_compra = req.params.id;
   let numTipo = req.body.tipo;
   let numCantidad = req.body.cantidad;
-  let datos = await RegisOficina.find({_id : id_compra})
+  let datos = await RegisOficina.find({ _id: id_compra });
   let datos_enviados = {
     titulo: datos[0].titulo,
-    direccion: datos[0].direccion, 
-    imagen:datos[0].imagen,
+    direccion: datos[0].direccion,
+    imagen: datos[0].imagen,
     tipo: datos[0].tipoAlquiler[numTipo],
-    cantidad : numCantidad,
-    total : (datos[0].precioAlquiler[numTipo]) * numCantidad,
-}
+    cantidad: numCantidad,
+    total: datos[0].precioAlquiler[numTipo] * numCantidad,
+  };
 
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
-  res.send("compra exitosa");
-
+  let idCom = await RegisCompra.find(({ titulo: datos[0].titulo, imagen: datos[0].imagen  }, { _id: 1 }))
+  res.send(idCom);
 });
-
- 
-
 
 //Sitio web registro
 app.get("/registro", function (req, res) {
@@ -91,7 +88,7 @@ app.post("/registro", async function (req, res) {
   let nuevo_cliente = new RegisCliente(datos_enviados);
   await nuevo_cliente.save();
   res.send("Registro exitoso");
-  console.log(datos_enviados)
+  console.log(datos_enviados);
 });
 //Sitio web login
 app.get("/login", function (req, res) {
@@ -102,16 +99,19 @@ app.get("/login", function (req, res) {
 app.post("/login", async function (req, res) {
   let emailLogin = req.body.email;
   let contracenaLogin = req.body.contracena;
-  let bd = await RegisCliente.find({email : emailLogin, contracena : contracenaLogin},{email:1, contracena:1, _id:0})
+  let bd = await RegisCliente.find(
+    { email: emailLogin, contracena: contracenaLogin },
+    { email: 1, contracena: 1, _id: 0 }
+  );
   let mensaje;
-  if(bd!=""){
-    mensaje = "login exitoso"
-  }else{
-    mensaje = "email o contraceña incorrecta"
+  if (bd != "") {
+    mensaje = "login exitoso";
+  } else {
+    mensaje = "email o contraceña incorrecta";
   }
-  res.send(mensaje)
+  res.send(mensaje);
 
- console.log(bd)
+  console.log(bd);
 });
 //Sitio web listado
 app.get("/listado", function (req, res) {
@@ -120,15 +120,15 @@ app.get("/listado", function (req, res) {
 
 //Sitio web listado
 app.post("/listado", async function (req, res) {
-
-  let bdOficina = await regisOficina.find()
-  res.send(bdOficina)
+  let bdOficina = await RegisOficina.find();
+  res.send(bdOficina);
 });
 
-
-
-
-
+// ruta para el detalle
+app.get("/carrito", function (req, res) {
+  let id_oficina = req.params.id;
+  res.sendFile(path.resolve("../cliente/nueva/carrito.html"));
+});
 
 //puerto del servidor
 app.listen(3000, function () {
