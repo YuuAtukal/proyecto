@@ -5,132 +5,135 @@
    * Contador
    */
   const select = (el, all = false) => {
-    el = el.trim()
+    el = el.trim();
     if (all) {
-      return [...document.querySelectorAll(el)]
+      return [...document.querySelectorAll(el)];
     } else {
-      return document.querySelector(el)
+      return document.querySelector(el);
     }
-  }
+  };
 
   /**
    * Tambien ayuda al contador
    */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
+    let selectEl = select(el, all);
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+        selectEl.forEach((e) => e.addEventListener(type, listener));
       } else {
-        selectEl.addEventListener(type, listener)
+        selectEl.addEventListener(type, listener);
       }
     }
-  }
+  };
 
   /**
    * No lo vas a creer pero tambien ayuda al contador
    */
   const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+    el.addEventListener("scroll", listener);
+  };
 
   /**
    * Hace que los enlaces del nav esten activos al hacer scroll
    */
-  let navbarlinks = select('#navbar .scrollto', true)
+  let navbarlinks = select("#navbar .scrollto", true);
   const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+    let position = window.scrollY + 200;
+    navbarlinks.forEach((navbarlink) => {
+      if (!navbarlink.hash) return;
+      let section = select(navbarlink.hash);
+      if (!section) return;
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        navbarlink.classList.add("active");
       } else {
-        navbarlink.classList.remove('active')
+        navbarlink.classList.remove("active");
       }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+    });
+  };
+  window.addEventListener("load", navbarlinksActive);
+  onscroll(document, navbarlinksActive);
 
   /**
    * Permite mover la pagina cuando seleccionas algo del nav
    */
   const scrollto = (el) => {
-    let header = select('#header')
-    let offset = header.offsetHeight
+    let header = select("#header");
+    let offset = header.offsetHeight;
 
-    let elementPos = select(el).offsetTop
+    let elementPos = select(el).offsetTop;
     window.scrollTo({
       top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   /**
    * Cambia la clase .header-scrolled a #header cuando la página se desplaza
    */
-  let selectHeader = select('#header')
+  let selectHeader = select("#header");
   if (selectHeader) {
     const headerScrolled = () => {
       if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
+        selectHeader.classList.add("header-scrolled");
       } else {
-        selectHeader.classList.remove('header-scrolled')
+        selectHeader.classList.remove("header-scrolled");
       }
-    }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
+    };
+    window.addEventListener("load", headerScrolled);
+    onscroll(document, headerScrolled);
   }
 
   /**
    * Boton para volver arriba
    */
-  let backtotop = select('.back-to-top')
+  let backtotop = select(".back-to-top");
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
-        backtotop.classList.add('active')
+        backtotop.classList.add("active");
       } else {
-        backtotop.classList.remove('active')
+        backtotop.classList.remove("active");
       }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
+    };
+    window.addEventListener("load", toggleBacktotop);
+    onscroll(document, toggleBacktotop);
   }
 
   /**
    * Movedor de comentarios
    */
-  new Swiper('.testimonials-slider', {
+  new Swiper(".testimonials-slider", {
     speed: 600,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
     },
     breakpoints: {
       320: {
         slidesPerView: 1,
-        spaceBetween: 20
+        spaceBetween: 20,
       },
 
       1200: {
         slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
+        spaceBetween: 20,
+      },
+    },
   });
 
   /**
-   * Inicia el Pure Counter 
+   * Inicia el Pure Counter
    */
   new PureCounter();
 
@@ -167,22 +170,18 @@
     // Actualizamos el contenido del elemento con el total calculado
     total.textContent = `$${totalCalculado}`;
   } */
-
-
-})()
+})();
 
 $(document).ready(function () {
   let url_actual = window.location.href;
-  var resp=[];
-
+ 
   //Petición al servidor hecha con AJAX
   $.ajax({
     url: url_actual,
     method: "post",
-
+   
     success: function (respuesta) {
       var resp = respuesta;
-    
 
       $("#titulo").text(resp[0].titulo);
       $("#descripcion").text(resp[0].descripcion);
@@ -193,24 +192,24 @@ $(document).ready(function () {
       servicios(serv);
       let opc = resp[0].tipoAlquiler;
       opciones(opc);
-      let precios = resp[0].precioAlquiler
-      calTotal(precios)
+      let precios = resp[0].precioAlquiler;
+      calTotal(precios);
     },
   });
- 
-
 
   function servicios(array) {
     for (let i = 0; i < array.length; i++) {
       $("<div/>", {
         class: "icon-box",
-      }).append(
-        $("<h4/>").append(
-          $("<a/>", {
-            text: array[i],
-          })
+      })
+        .append(
+          $("<h4/>").append(
+            $("<a/>", {
+              text: array[i],
+            })
+          )
         )
-      ).appendTo(i % 2 == 0 ? "#servicios-col-1" : "#servicios-col-2");
+        .appendTo(i % 2 == 0 ? "#servicios-col-1" : "#servicios-col-2");
     }
   }
 
@@ -227,42 +226,28 @@ $(document).ready(function () {
       i++;
     }
   }
-  function calTotal(array){
-
-    $("#cantidad").change( function(){
-     let opcion= parseInt( $("#opciones").val())
-     let cantidad = parseInt( $("#cantidad").val())
-     let total = array[opcion] * cantidad
-     $("#total").text(total)
-
-
-    })
-
+  function calTotal(array) {
+    $("#cantidad").change(function () {
+      let opcion = parseInt($("#opciones").val());
+      let cantidad = parseInt($("#cantidad").val());
+      let total = array[opcion] * cantidad;
+      $("#total").text(total);
+    });
   }
 
-    console.log(resp)
-    //Escribo todo lo necesario para enviar los datos al servidor
-    $("#formAlquiler").submit(function (e) {
-      e.preventDefault();
-  
-      let datos_formulario = $("#formAlquiler").serialize();
-  
-      //Petición al servidor hecha con AJAX
-      $.ajax({
-        url: "http://localhost:3000/compra:id",
-        method: "post",
-        data: datos_formulario,
-        success: function (respuesta) {
-        
-          alert(respuesta);
 
-          /* window.location.href = "http://localhost:3000/detalle/"+resp.id; */
-        }
-      });
-    
+  
+  $("#formAlquiler").submit(function (e) {
+    let datos_formulario = $("#formAlquiler").serialize();
+    e.preventDefault();
+    //Petición al servidor hecha con AJAX
+    $.ajax({
+      url: url_actual,
+      method: "put",
+      data: datos_formulario,
+      success: function (respuesta) {
+        alert(respuesta);
+      },
+    });
   });
-
-
-
-
 });

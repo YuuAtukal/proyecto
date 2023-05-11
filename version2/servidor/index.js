@@ -56,15 +56,29 @@ app.post("/detalle/:id", async function (req, res) {
   res.send(datos);
   console.log(id_oficina)
 });
+//Ruta ----> guardar la compra un la bd compra 
+app.put("/detalle/:id", async function (req, res) {
+  let id_compra = req.params.id
+  let numTipo = req.body.tipo;
+  let numCantidad = req.body.cantidad;
+  let datos = await RegisOficina.find({_id : id_compra})
+  let datos_enviados = {
+    titulo: datos[0].titulo,
+    direccion: datos[0].direccion, 
+    imagen:datos[0].imagen,
+    tipo: datos[0].tipoAlquiler[numTipo],
+    cantidad : numCantidad,
+    total : (datos[0].precioAlquiler[numTipo]) * numCantidad,
+}
 
-//Ruta ----> Guardar una compra 
-app.post("/compra", async function (req, res) {
-  let datos_enviados = req.body;
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
   res.send("compra exitosa");
-  console.log(datos_enviados)
+
 });
+
+ 
+
 
 //Sitio web registro
 app.get("/registro", function (req, res) {
