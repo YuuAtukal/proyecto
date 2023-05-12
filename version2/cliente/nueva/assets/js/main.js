@@ -13,6 +13,119 @@
     }
   };
 
+  window.addEventListener('load',function(){
+
+    document.getElementById('fechaEntrada1').type= 'text';
+    
+    document.getElementById('fechaEntrada1').addEventListener('blur',function(){
+    
+    document.getElementById('fechaEntrada1').type= 'text';
+    
+    });
+    
+    document.getElementById('fechaEntrada1').addEventListener('focus',function(){
+    
+    document.getElementById('fechaEntrada1').type= 'date';
+    
+    });
+    
+  });
+
+  window.addEventListener('load',function(){
+
+    document.getElementById('fechaSalida1').type= 'text';
+    
+    document.getElementById('fechaSalida1').addEventListener('blur',function(){
+    
+    document.getElementById('fechaSalida1').type= 'text';
+    
+    });
+    
+    document.getElementById('fechaSalida1').addEventListener('focus',function(){
+    
+    document.getElementById('fechaSalida1').type= 'date';
+    
+    });
+    
+  });
+
+  // Obtener el elemento del botón
+var button = document.getElementById("button");
+
+// Escuchar el evento de clic en el botón
+button.addEventListener("click", verificarIntervalo);
+
+// Función para verificar el intervalo
+function verificarIntervalo(event) {
+  // Prevenir el envío del formulario si es necesario
+  event.preventDefault();
+
+  // Obtener los elementos del formulario
+  var select = document.getElementById("opciones");
+  var cantidadInput = document.getElementById("cantidad");
+  var fechaEntradaInput = document.getElementById("fechaEntrada1");
+  var fechaSalidaInput = document.getElementById("fechaSalida1");
+
+  var cantidad = parseInt(cantidadInput.value);
+  var fechaEntrada = fechaEntradaInput.value;
+  var fechaSalida = fechaSalidaInput.value;
+
+  // Verificar si se han ingresado la cantidad y las fechas
+  if (cantidad && fechaEntrada && fechaSalida) {
+    var opcionSeleccionada = select.value;
+    var intervalo = 0;
+
+    switch (opcionSeleccionada) {
+      case "meses":
+        intervalo = calcularIntervaloMeses(fechaEntrada, fechaSalida);
+        break;
+      case "semanas":
+        intervalo = calcularIntervaloSemanas(fechaEntrada, fechaSalida);
+        break;
+      case "dias":
+        intervalo = calcularIntervaloDias(fechaEntrada, fechaSalida);
+        break;
+      case "horas":
+        intervalo = calcularIntervaloHoras(fechaEntrada, fechaSalida);
+        break;
+    }
+
+    if (cantidad === intervalo) {
+      // El intervalo coincide, no hacer nada
+      return;
+    } else {
+      // El intervalo no coincide, mostrar el alert
+      alert("El intervalo no coincide con la cantidad seleccionada");
+    }
+  }
+}
+
+// Funciones para calcular el intervalo en diferentes unidades de tiempo
+function calcularIntervaloMeses(fechaEntrada, fechaSalida) {
+  var entrada = new Date(fechaEntrada);
+  var salida = new Date(fechaSalida);
+  return (salida.getFullYear() - entrada.getFullYear()) * 12 + (salida.getMonth() - entrada.getMonth());
+}
+
+function calcularIntervaloSemanas(fechaEntrada, fechaSalida) {
+  var entrada = new Date(fechaEntrada);
+  var salida = new Date(fechaSalida);
+  return Math.floor((salida - entrada) / (1000 * 60 * 60 * 24 * 7));
+}
+
+function calcularIntervaloDias(fechaEntrada, fechaSalida) {
+  var entrada = new Date(fechaEntrada);
+  var salida = new Date(fechaSalida);
+  return Math.floor((salida - entrada) / (1000 * 60 * 60 * 24));
+}
+
+function calcularIntervaloHoras(fechaEntrada, fechaSalida) {
+  var entrada = new Date(fechaEntrada);
+  var salida = new Date(fechaSalida);
+  return Math.floor((salida - entrada) / (1000 * 60 * 60));
+}
+
+
   /**
    * Tambien ayuda al contador
    */
@@ -163,9 +276,7 @@
       totalCalculado = cantidad * 2;
     } else if (valor === 'dias') {
       totalCalculado = cantidad * 3;
-    } else if (valor === 'horas') {
-      totalCalculado = cantidad * 4;
-    }
+
 
     // Actualizamos el contenido del elemento con el total calculado
     total.textContent = `$${totalCalculado}`;
