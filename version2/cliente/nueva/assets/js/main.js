@@ -235,6 +235,9 @@ $(document).ready(function () {
     });
   }
 
+  
+
+
 
   
   $("#formAlquiler").submit(function (e) {
@@ -253,4 +256,9 @@ $(document).ready(function () {
       },
     });
   });
+
+
+
+
+
 });
