@@ -69,8 +69,13 @@ app.put("/detalle/:id", async function (req, res) {
     tipo: datos[0].tipoAlquiler[numTipo],
     cantidad: numCantidad,
     total: datos[0].precioAlquiler[numTipo] * numCantidad,
+    numCedula : req.body.numCedula,
+    fechaEntrada : req.body.fechaEntrada,
+    fechaSalida : req.body.fechaSalida,
   };
-
+  console.log("cedula " + req.body.numCedula)
+  console.log("fechaEntrada " + req.body.fechaEntrada)
+  console.log("fechaEntrada " + req.body.fechaEntrada)
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
   let idCom = await RegisCompra.find(({ titulo: datos[0].titulo, imagen: datos[0].imagen  }, { _id: 1 }))
@@ -124,11 +129,13 @@ app.post("/listado", async function (req, res) {
   res.send(bdOficina);
 });
 
-// ruta para el detalle
+// ruta para el carrito
 app.get("/carrito", function (req, res) {
   let id_oficina = req.params.id;
   res.sendFile(path.resolve("../cliente/nueva/carrito.html"));
 });
+
+
 
 //puerto del servidor
 app.listen(3000, function () {

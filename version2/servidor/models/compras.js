@@ -10,6 +10,9 @@ let RegisCompra = new Schema({
     tipo: String,
     cantidad : Number,
     total : Number,
+    fechaEntrada : String,
+    fechaSalida : String,
+    numCedula: String,
   
 })
 

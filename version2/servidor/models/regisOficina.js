@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 let RegisOficina = new Schema({
     titulo: String,
     direccion: String, 
+    cedula: String,
     email: String,
     descripcion: String,
     telefono: String,
