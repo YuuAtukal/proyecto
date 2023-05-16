@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 
+
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
 const RegisCliente = require("./models/regisCliente");
