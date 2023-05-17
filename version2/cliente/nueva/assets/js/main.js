@@ -298,6 +298,7 @@ $(document).ready(function () {
       let cantidad = parseInt($("#cantidad").val());
       let total = opcion * cantidad;
       $("#total").text(total);
+      $("#inputTotal").val(total)
       console.log(opcion)
       console.log(total)
     })
@@ -308,6 +309,7 @@ $(document).ready(function () {
       let cantidad = parseInt($("#cantidad").val());
       let total = opcion * cantidad;
       $("#total").text(total);
+      $("#inputTotal").val(total)
       console.log(opcion)
       console.log(total)
     });

@@ -70,7 +70,7 @@ app.put("/detalle/:id", async function (req, res) {
     imagen: datos[0].imagen,
     tipo: tipoSelec,
     cantidad: numCantidad,
-    /* total: datos[0].precioAlquiler[numTipo] * numCantidad, */
+    total: req.body.total,
     numCedula : req.body.numCedula,
     fechaEntrada : req.body.fechaEntrada,
     fechaSalida : req.body.fechaSalida,
