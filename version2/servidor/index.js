@@ -20,7 +20,7 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
-
+app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets/css/style.css")));
 
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
@@ -136,9 +136,14 @@ app.get("/carrito", function (req, res) {
   res.sendFile(path.resolve("../cliente/nueva/carrito.html"));
 });
 
-
+//Sitio web perfil cliente
+app.get("/cliente", function (req, res) {
+  res.sendFile(path.resolve("../cliente/portafolio/index_cliente.html"));
+});
 
 //puerto del servidor
 app.listen(3000, function () {
   console.log("Servidor OK!!!");
 });
+
+
