@@ -20,11 +20,7 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
-<<<<<<< Updated upstream
-app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets/css/style.css")));
-=======
 app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets")));
->>>>>>> Stashed changes
 
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
@@ -140,28 +136,19 @@ app.get("/carrito", function (req, res) {
   res.sendFile(path.resolve("../cliente/nueva/carrito.html"));
 });
 
-<<<<<<< Updated upstream
 //Sitio web perfil cliente
 app.get("/cliente", function (req, res) {
   res.sendFile(path.resolve("../cliente/portafolio/index_cliente.html"));
 });
 
-//puerto del servidor
-app.listen(3000, function () {
-  console.log("Servidor OK!!!");
-});
 
-
-=======
 // Ruta para el archivo de inicio de sesión
 app.get("/inicio", function (req, res) {
   res.sendFile(path.resolve("../cliente/inicio.html"));
 });
 
 
-
 //puerto del servidor
 app.listen(3000, function () {
   console.log("Servidor OK!!!");
 });
->>>>>>> Stashed changes
