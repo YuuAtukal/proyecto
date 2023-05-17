@@ -20,11 +20,8 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
-<<<<<<< Updated upstream
-app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets/css/style.css")));
-=======
-app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets")));
->>>>>>> Stashed changes
+
+
 
 //Modelos de datos
 const RegisOficina = require("./models/regisOficina");
@@ -64,27 +61,25 @@ app.post("/detalle/:id", async function (req, res) {
 //Ruta ----> guardar la compra un la bd compra
 app.put("/detalle/:id", async function (req, res) {
   let id_compra = req.params.id;
-  let numTipo = req.body.tipo;
+  let tipoSelec = req.body.tipo;
   let numCantidad = req.body.cantidad;
   let datos = await RegisOficina.find({ _id: id_compra });
   let datos_enviados = {
     titulo: datos[0].titulo,
     direccion: datos[0].direccion,
     imagen: datos[0].imagen,
-    tipo: datos[0].tipoAlquiler[numTipo],
+    tipo: tipoSelec,
     cantidad: numCantidad,
-    total: datos[0].precioAlquiler[numTipo] * numCantidad,
+    /* total: datos[0].precioAlquiler[numTipo] * numCantidad, */
     numCedula : req.body.numCedula,
     fechaEntrada : req.body.fechaEntrada,
     fechaSalida : req.body.fechaSalida,
   };
   console.log("cedula " + req.body.numCedula)
   console.log("fechaEntrada " + req.body.fechaEntrada)
-  console.log("fechaEntrada " + req.body.fechaEntrada)
+  console.log("fechaEntrada " + req.body.fechaSalida)
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
-  let idCom = await RegisCompra.find(({ titulo: datos[0].titulo, imagen: datos[0].imagen  }, { _id: 1 }))
-  res.send(idCom);
 });
 
 //Sitio web registro
@@ -140,7 +135,7 @@ app.get("/carrito", function (req, res) {
   res.sendFile(path.resolve("../cliente/nueva/carrito.html"));
 });
 
-<<<<<<< Updated upstream
+
 //Sitio web perfil cliente
 app.get("/cliente", function (req, res) {
   res.sendFile(path.resolve("../cliente/portafolio/index_cliente.html"));
@@ -151,17 +146,3 @@ app.listen(3000, function () {
   console.log("Servidor OK!!!");
 });
 
-
-=======
-// Ruta para el archivo de inicio de sesión
-app.get("/inicio", function (req, res) {
-  res.sendFile(path.resolve("../cliente/inicio.html"));
-});
-
-
-
-//puerto del servidor
-app.listen(3000, function () {
-  console.log("Servidor OK!!!");
-});
->>>>>>> Stashed changes
