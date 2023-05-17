@@ -71,9 +71,9 @@ app.put("/detalle/:id", async function (req, res) {
     titulo: datos[0].titulo,
     direccion: datos[0].direccion,
     imagen: datos[0].imagen,
-    tipo: numTipo /* datos[0].tipoAlquiler[numTipo] */,
+    tipo: datos[0].tipoAlquiler[numTipo],
     cantidad: numCantidad,
-    /* total:req.body.total  *//* datos[0].precioAlquiler[numTipo] * numCantidad */
+    total: datos[0].precioAlquiler[numTipo] * numCantidad,
     numCedula : req.body.numCedula,
     fechaEntrada : req.body.fechaEntrada,
     fechaSalida : req.body.fechaSalida,
@@ -81,9 +81,6 @@ app.put("/detalle/:id", async function (req, res) {
   console.log("cedula " + req.body.numCedula)
   console.log("fechaEntrada " + req.body.fechaEntrada)
   console.log("fechaEntrada " + req.body.fechaEntrada)
-  console.log("numTipo  " + numTipo)
-  console.log("total  " + req.body.total)
-
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
   let idCom = await RegisCompra.find(({ titulo: datos[0].titulo, imagen: datos[0].imagen  }, { _id: 1 }))
@@ -161,10 +158,6 @@ app.get("/inicio", function (req, res) {
   res.sendFile(path.resolve("../cliente/inicio.html"));
 });
 
-// Ruta para el archivo index_clientes.html
-app.get("/inicio_cliente", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "../cliente/portafolio/index_cliente.html"));
-});
 
 
 //puerto del servidor
