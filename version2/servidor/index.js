@@ -78,6 +78,7 @@ app.put("/detalle/:id", async function (req, res) {
   console.log("cedula " + req.body.numCedula)
   console.log("fechaEntrada " + req.body.fechaEntrada)
   console.log("fechaEntrada " + req.body.fechaSalida)
+  console.log("total " + req.body.total)
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
 });
