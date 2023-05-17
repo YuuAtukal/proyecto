@@ -84,8 +84,12 @@ app.put("/detalle/:id", async function (req, res) {
 });
 
 //Sitio web registro
-app.get("/registro", function (req, res) {
+app.get("/registrocliente", function (req, res) {
   res.sendFile(path.resolve("../cliente/registrocliente.html"));
+});
+
+app.get("/registrocowork", function (req, res) {
+  res.sendFile(path.resolve("../cliente/registro-cowork.html"));
 });
 
 //Ruta ----> Guardar un nuevo cliente en la BD clientes
@@ -99,6 +103,10 @@ app.post("/registro", async function (req, res) {
 //Sitio web login
 app.get("/login", function (req, res) {
   res.sendFile(path.resolve("../cliente/login.html"));
+});
+
+app.get("/about", function (req, res) {
+  res.sendFile(path.resolve("../cliente/about.html"));
 });
 
 //Ruta ----> comprarar
@@ -124,6 +132,10 @@ app.get("/listado", function (req, res) {
   res.sendFile(path.resolve("../cliente/portfolio-overview.html"));
 });
 
+app.get("/adicionales", function (req, res) {
+  res.sendFile(path.resolve("../cliente/portfolio-item.html"));
+});
+
 //Sitio web listado
 app.post("/listado", async function (req, res) {
   let bdOficina = await RegisOficina.find();
@@ -140,6 +152,10 @@ app.get("/carrito", function (req, res) {
 //Sitio web perfil cliente
 app.get("/cliente", function (req, res) {
   res.sendFile(path.resolve("../cliente/portafolio/index_cliente.html"));
+});
+
+app.get("/inicio", function (req, res) {
+  res.sendFile(path.resolve("../cliente/inicio.html"));
 });
 
 //puerto del servidor
