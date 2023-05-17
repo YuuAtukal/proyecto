@@ -312,10 +312,12 @@ $(document).ready(function () {
       $("#imagen").val(resp[0].imagen);
       $("#direccion").text(resp[0].direccion);
       let serv = resp[0].servicios;
+      let precios = resp[0].precioAlquiler;
+      console.log(precios)
       servicios(serv);
       let opc = resp[0].tipoAlquiler;
-      opciones(opc);
-      let precios = resp[0].precioAlquiler;
+      opciones(opc, precios);
+      
       calTotal(precios);
     },
   });
@@ -336,7 +338,7 @@ $(document).ready(function () {
     }
   }
 
-  function opciones(array) {
+  function opciones(array, precios ) {
     var i = 0;
   
     while (i < array.length) {
@@ -366,19 +368,38 @@ $(document).ready(function () {
         $("<option>", {
           value: value,
           text: array[i],
-        }).attr("data-precio",80)
-      );
+          class: i,
+          
+         
+        }).attr("data-precio", precios[i])
+      )
       i++;
     }
   }
 
-  function calTotal(array) {
-    $("#cantidad").change(function () {
-      let opcion = parseInt($("#opciones").val());
+
+  function calTotal() {
+    $("#opciones").change(function () {
+      let clase = $(this).find('option:selected').attr('class');
+      console.log('Clase seleccionada:', clase);
+      let opcion = parseInt($("."+clase).attr("data-precio"));
       let cantidad = parseInt($("#cantidad").val());
-      let total = array[opcion] * cantidad;
+      let total = opcion * cantidad;
       $("#total").text(total);
+      console.log(opcion)
+      console.log(total)
+    })
+    $("#cantidad").change(function () {
+      let clase = $("#opciones").find('option:selected').attr('class');
+      console.log('Clase seleccionada:', clase);
+      let opcion = parseInt($("." + clase).attr("data-precio"));
+      let cantidad = parseInt($("#cantidad").val());
+      let total = opcion * cantidad;
+      $("#total").text(total);
+      console.log(opcion)
+      console.log(total)
     });
+ 
   }
 
 
