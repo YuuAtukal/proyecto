@@ -327,7 +327,6 @@ $(document).ready(function () {
       data: datos_formulario,
       success: function (respuesta) {
         alert(respuesta);
-        id=respuesta
         window.location.href ="http://localhost:3000/carrito"
 
       },

@@ -81,6 +81,7 @@ app.put("/detalle/:id", async function (req, res) {
   console.log("total " + req.body.total)
   let nuevo_compra = new RegisCompra(datos_enviados);
   await nuevo_compra.save();
+  res.send("carga exitosa, para continuar dirijase a carrito de compra")
 });
 
 //Sitio web registro
