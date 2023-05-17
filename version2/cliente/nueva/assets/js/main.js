@@ -49,57 +49,69 @@
     
   });
 
-  // Obtener el elemento del botón
-var button = document.getElementById("button");
+var button2 = document.getElementById("button2");
+button2.addEventListener("click", verificarIntervalo);
 
-// Escuchar el evento de clic en el botón
+var button = document.getElementById("button");
 button.addEventListener("click", verificarIntervalo);
 
-// Función para verificar el intervalo
-function verificarIntervalo(event) {
-  // Prevenir el envío del formulario si es necesario
-  event.preventDefault();
-
-  // Obtener los elementos del formulario
-  var select = document.getElementById("opciones");
-  var cantidadInput = document.getElementById("cantidad");
-  var fechaEntradaInput = document.getElementById("fechaEntrada1");
-  var fechaSalidaInput = document.getElementById("fechaSalida1");
-
-  var cantidad = parseInt(cantidadInput.value);
-  var fechaEntrada = fechaEntradaInput.value;
-  var fechaSalida = fechaSalidaInput.value;
-
-  // Verificar si se han ingresado la cantidad y las fechas
-  if (cantidad && fechaEntrada && fechaSalida) {
-    var opcionSeleccionada = select.value;
-    var intervalo = 0;
-
-    switch (opcionSeleccionada) {
-      case "meses":
-        intervalo = calcularIntervaloMeses(fechaEntrada, fechaSalida);
-        break;
-      case "semanas":
-        intervalo = calcularIntervaloSemanas(fechaEntrada, fechaSalida);
-        break;
-      case "dias":
-        intervalo = calcularIntervaloDias(fechaEntrada, fechaSalida);
-        break;
-      case "horas":
-        intervalo = calcularIntervaloHoras(fechaEntrada, fechaSalida);
-        break;
-    }
-
-    if (cantidad === intervalo) {
-      // El intervalo coincide, no hacer nada
-      return;
-    } else {
-      // El intervalo no coincide, mostrar el alert
-      alert("El intervalo no coincide con la cantidad seleccionada");
+  function verificarIntervalo(event) {
+    event.preventDefault();
+  
+    var select = document.getElementById("opciones");
+    var cantidadInput = document.getElementById("cantidad");
+    var fechaEntradaInput = document.getElementById("fechaEntrada1");
+    var fechaSalidaInput = document.getElementById("fechaSalida1");
+  
+    var cantidad = parseInt(cantidadInput.value);
+    var fechaEntrada = new Date(fechaEntradaInput.value);
+    var fechaSalida = new Date(fechaSalidaInput.value);
+  
+    if (cantidad && fechaEntrada && fechaSalida) {
+      var opcionSeleccionada = select.value;
+      var intervalo = 0;
+  
+      switch (opcionSeleccionada) {
+        case "meses":
+          intervalo = calcularIntervaloMeses(fechaEntrada, fechaSalida);
+          break;
+        case "semanas":
+          intervalo = calcularIntervaloSemanas(fechaEntrada, fechaSalida);
+          break;
+        case "dias":
+          intervalo = calcularIntervaloDias(fechaEntrada, fechaSalida);
+          break;
+        case "horas":
+          intervalo = calcularIntervaloHoras(fechaEntrada, fechaSalida);
+          break;
+      }
+  
+      var cantidadVerificar = 0;
+  
+      switch (opcionSeleccionada) {
+        case "meses":
+          cantidadVerificar = calcularIntervaloMeses(fechaEntrada, fechaSalida);
+          break;
+        case "semanas":
+          cantidadVerificar = calcularIntervaloSemanas(fechaEntrada, fechaSalida);
+          break;
+        case "dias":
+          cantidadVerificar = calcularIntervaloDias(fechaEntrada, fechaSalida);
+          break;
+        case "horas":
+          cantidadVerificar = calcularIntervaloHoras(fechaEntrada, fechaSalida);
+          break;
+      }
+  
+      if (cantidad === cantidadVerificar) {
+        alert("VAMOOOOOO");
+        return;
+      } else {
+        alert("El intervalo no coincide con la cantidad seleccionada");
+      }
     }
   }
-}
-
+  
 // Funciones para calcular el intervalo en diferentes unidades de tiempo
 function calcularIntervaloMeses(fechaEntrada, fechaSalida) {
   var entrada = new Date(fechaEntrada);
@@ -326,17 +338,40 @@ $(document).ready(function () {
 
   function opciones(array) {
     var i = 0;
-
+  
     while (i < array.length) {
+      var value = ""; // Variable para almacenar el value correspondiente a cada opción
+  
+      // Asignar el value según la opción seleccionada
+      switch (array[i]) {
+        case "Mes":
+          value = "meses";
+          
+          break;
+        case "Dia":
+          value = "dias";
+          break;
+        case "Semana":
+          value = "semanas";
+          break;
+        case "Hora":
+          value = "horas";
+          break;
+        default:
+          value = "";
+          break;
+      }
+  
       $("#opciones").append(
         $("<option>", {
-          value: i,
+          value: value,
           text: array[i],
-        })
+        }).attr("data-precio",80)
       );
       i++;
     }
   }
+
   function calTotal(array) {
     $("#cantidad").change(function () {
       let opcion = parseInt($("#opciones").val());
@@ -346,11 +381,7 @@ $(document).ready(function () {
     });
   }
 
-  
 
-
-
-  
   $("#formAlquiler").submit(function (e) {
     let datos_formulario = $("#formAlquiler").serialize();
     e.preventDefault();
