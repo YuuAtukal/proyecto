@@ -11,7 +11,17 @@ $(document).ready(function () {
         method: "post",
         data: datos_login,
         success: function (respuesta) {
-          alert(respuesta);
+         
+          if(respuesta != "incorrecto"){
+            localStorage.setItem("logueado", true);
+            localStorage.setItem("usuario",respuesta )
+            window.location.href = "http://localhost:3000/inicio"
+          }else{
+            localStorage.setItem("logueado", false);
+            alert("usuario o contraceña incorrectos")
+          }         
+
+         
         },
       });
     });

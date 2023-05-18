@@ -20,6 +20,11 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
+app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets")));
+
+
+
+
 
 
 
@@ -111,19 +116,19 @@ app.get("/about", function (req, res) {
   res.sendFile(path.resolve("../cliente/about.html"));
 });
 
-//Ruta ----> comprarar
+//Ruta ----> comparar
 app.post("/login", async function (req, res) {
   let emailLogin = req.body.email;
   let contracenaLogin = req.body.contracena;
   let bd = await RegisCliente.find(
     { email: emailLogin, contracena: contracenaLogin },
-    { email: 1, contracena: 1, _id: 0 }
+    { email: 1, contracena: 1, nombre:1, apellido:1, _id: 0 }
   );
   let mensaje;
   if (bd != "") {
-    mensaje = "login exitoso";
+    mensaje = bd[0].nombre + " " + bd[0].apellido;
   } else {
-    mensaje = "email o contraceña incorrecta";
+    mensaje = "incorrecto";
   }
   res.send(mensaje);
 
