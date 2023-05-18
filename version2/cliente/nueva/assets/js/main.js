@@ -354,7 +354,7 @@ $(document).ready(function () {
     }
 
     // Deshabilitar y desactivar el campo de fecha de salida para que no sea editable
-    $("#fechaSalida1").prop("disabled", true);
+   /*  $("#fechaSalida1").prop("disabled", true); */
   }
 
 
