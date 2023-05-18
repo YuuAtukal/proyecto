@@ -126,9 +126,12 @@
                 <div class="col-lg-8 info">
                   <h5>Total a pagar: <em id="total" >$0</em></h5>
                   <input type="hidden" name="total" id="inputTotal" value="0">
-                  <input id="fechaEntrada1" placeholder="Ingrese fecha de entrada" type="date" name="fechaEntrada"></input>
-                  <input id="fechaSalida1" placeholder="Ingrese fecha de salida" type="date" name="fechaSalida"></input>
-                  <input id="cedula" placeholder="Ingrese número de cédula" type="text" name="numCedula"></input>
+                  <div class="input-container">
+                    <input id="fechaEntrada1" placeholder="Fecha de entrada" type="date" name="fechaEntrada"></input>
+                    <input id="fechaSalida1" placeholder="Fecha de salida" type="date" name="fechaSalida"></input>
+                    <input id="cedula" placeholder="Número de cédula" type="text" name="numCedula"></input>
+                  </div>
+
                 </div>
                 </div>
 
@@ -152,17 +155,17 @@
     <form action="forms/contact.php" method="post" role="form" class="php-email-form">
       <div class="row">
         <div class="col-md-6 form-group">
-          <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+          <input type="text" name="name" class="form-control casillas" id="name" placeholder="Nombre" required>
         </div>
         <div class="col-md-6 form-group mt-3 mt-md-0">
-          <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required>
+          <input type="email" class="form-control casillas" name="email" id="email" placeholder="Correo" required>
         </div>
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+        <input type="text" class="form-control casillas" name="subject" id="subject" placeholder="Asunto" required>
       </div>
       <div class="form-group mt-3">
-        <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+        <textarea class="form-control casillas" name="message" rows="5" placeholder="Mensaje" required></textarea>
       </div>
       <div class="my-3">
         <div class="loading">Cargando</div>

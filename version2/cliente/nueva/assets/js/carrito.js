@@ -22,8 +22,6 @@ $(document).ready(function () {
         $("#tituloDireccion").text(resp[0].titulo + ", " + resp[0].direccion);
         $("#tituloDireccionH").val(resp[0].titulo + ", " + resp[0].direccion);
         $("#cedula").val(resp[0].numCedula);
-      
-      
     },
   });
 

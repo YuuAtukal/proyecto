@@ -377,9 +377,4 @@ $(document).ready(function () {
       },
     });
   });
-
-
-
-
-
 });

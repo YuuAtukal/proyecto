@@ -724,8 +724,24 @@ h6 {
   padding-top: 40px;
 }
 
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container input {
+  margin-right: 10px; /* Espacio entre los inputs */
+}
+
 #titulo{
   padding-top: 40px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 #comentarios{
