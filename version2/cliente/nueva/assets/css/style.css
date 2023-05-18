@@ -7,8 +7,114 @@
 }
 
 
+/* ----------------------------------------------------------- */
+/* AQUI VA LO DE CLIENTE.HTML */
+/* ----------------------------------------------------------- */
+
+.aside {
+  background-color: #272f3a;
+  width: 300px; /* Ancho inicial del aside */
+  height: 100vh; /* Altura igual al 100% del viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+ /*  border-radius: 50%; */
+  background-image: url("https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2018/08/fotos-perfil-whatsapp_16.jpg?tf=3840x");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
 
 
+.person-name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: white;
+}
+
+
+/* lo de fuera del aside */
+.profile-container {
+  margin-top: 200px; /* Margen superior para separar la información de la barra de navegación */
+}
+
+.profile-info {
+  display: flex;
+  margin-left: 320px; /* Ancho del aside + margen */
+  padding: 20px;
+}
+
+.profile-info h1 {
+  text-align: left;
+  margin-top: 100px;
+  margin-bottom: 5px; /* Separación inferior mínima del título */
+}
+
+.profile-info p {
+  margin-bottom: 5px; /* Separación inferior mínima del texto descriptivo */
+  margin-top: 30px;
+
+
+}
+
+.profile-info .profile-image {
+  width: 180px;
+  height: 180px;
+  background-color: lightgray;
+  margin-right: 20px;
+  margin-bottom: 5px; /* Separación inferior mínima de la imagen */
+}
+
+.profile-info .column {
+  flex: 1;
+  margin-top: 250px;
+  margin-right: 40px;
+  margin-left: -15px;
+}
+
+.profile-info .column ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 30px;
+}
+
+.profile-info .column li {
+  margin-bottom: 20px; /* Separación inferior mínima de los elementos de la lista */
+
+}
+
+.reservas{
+  padding-left: 340px;
+  padding-top: 30px;
+}
+
+.reservas2{
+  color: #124364;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* AQUI SE ACABA LO DE CLIENTE.HTML */
 .icon-box {
   margin-bottom: 20px;
 }

@@ -180,7 +180,7 @@ app.delete("/carrito", async function (req, res) {
 
 //Sitio web perfil cliente
 app.get("/cliente", function (req, res) {
-  res.sendFile(path.resolve("../cliente/portafolio/index_cliente.html"));
+  res.sendFile(path.resolve("../cliente/nueva/cliente.html"));
 });
 
 app.get("/inicio", function (req, res) {
