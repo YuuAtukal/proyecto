@@ -13,40 +13,40 @@
     }
   };
 
-  window.addEventListener('load',function(){
+  window.addEventListener('load', function () {
 
-    document.getElementById('fechaEntrada1').type= 'text';
-    
-    document.getElementById('fechaEntrada1').addEventListener('blur',function(){
-    
-    document.getElementById('fechaEntrada1').type= 'text';
-    
+    document.getElementById('fechaEntrada1').type = 'text';
+
+    document.getElementById('fechaEntrada1').addEventListener('blur', function () {
+
+      document.getElementById('fechaEntrada1').type = 'text';
+
     });
-    
-    document.getElementById('fechaEntrada1').addEventListener('focus',function(){
-    
-    document.getElementById('fechaEntrada1').type= 'date';
-    
+
+    document.getElementById('fechaEntrada1').addEventListener('focus', function () {
+
+      document.getElementById('fechaEntrada1').type = 'date';
+
     });
-    
+
   });
 
-  window.addEventListener('load',function(){
+  window.addEventListener('load', function () {
 
-    document.getElementById('fechaSalida1').type= 'text';
-    
-    document.getElementById('fechaSalida1').addEventListener('blur',function(){
-    
-    document.getElementById('fechaSalida1').type= 'text';
-    
+    document.getElementById('fechaSalida1').type = 'text';
+
+    document.getElementById('fechaSalida1').addEventListener('blur', function () {
+
+      document.getElementById('fechaSalida1').type = 'text';
+
     });
-    
-    document.getElementById('fechaSalida1').addEventListener('focus',function(){
-    
-    document.getElementById('fechaSalida1').type= 'date';
-    
+
+    document.getElementById('fechaSalida1').addEventListener('focus', function () {
+
+      document.getElementById('fechaSalida1').type = 'date';
+
     });
-    
+
   });
 
 
@@ -209,12 +209,12 @@
 
 $(document).ready(function () {
   let url_actual = window.location.href;
- 
+
   //Petición al servidor hecha con AJAX
   $.ajax({
     url: url_actual,
     method: "post",
-   
+
     success: function (respuesta) {
       var resp = respuesta;
 
@@ -229,7 +229,7 @@ $(document).ready(function () {
       servicios(serv);
       let opc = resp[0].tipoAlquiler;
       opciones(opc, precios);
-      
+
       calTotal(precios);
     },
   });
@@ -250,17 +250,17 @@ $(document).ready(function () {
     }
   }
 
-  function opciones(array, precios ) {
+  function opciones(array, precios) {
     var i = 0;
-  
+
     while (i < array.length) {
       var value = ""; // Variable para almacenar el value correspondiente a cada opción
-  
+
       // Asignar el value según la opción seleccionada
       switch (array[i]) {
         case "Mes":
           value = "meses";
-          
+
           break;
         case "Dia":
           value = "dias";
@@ -275,14 +275,14 @@ $(document).ready(function () {
           value = "";
           break;
       }
-  
+
       $("#opciones").append(
         $("<option>", {
           value: value,
           text: array[i],
           class: i,
-          
-         
+
+
         }).attr("data-precio", precios[i])
       )
       i++;
@@ -294,7 +294,7 @@ $(document).ready(function () {
     $("#opciones").change(function () {
       let clase = $(this).find('option:selected').attr('class');
       console.log('Clase seleccionada:', clase);
-      let opcion = parseInt($("."+clase).attr("data-precio"));
+      let opcion = parseInt($("." + clase).attr("data-precio"));
       let cantidad = parseInt($("#cantidad").val());
       let total = opcion * cantidad;
       $("#total").text(total);
@@ -313,8 +313,53 @@ $(document).ready(function () {
       console.log(opcion)
       console.log(total)
     });
- 
+
   }
+
+  //ESTO PONE LA FECHA DE SALIDA AUTOMATICO EN EL INDEX.HTML
+
+
+  // Cuando se cambia el valor del select o se ingresa una cantidad
+  $("#opciones, #cantidad, #fechaEntrada1").on("change input", function () {
+    calcularFechaSalida();
+  });
+
+  function calcularFechaSalida() {
+    var opcion = $("#opciones").val();
+    var cantidad = parseInt($("#cantidad").val());
+    var fechaEntrada = new Date($("#fechaEntrada1").val());
+
+    if (!isNaN(cantidad) && fechaEntrada instanceof Date && !isNaN(fechaEntrada.getTime())) {
+      var fechaSalida = new Date(fechaEntrada);
+
+      switch (opcion) {
+        case "meses":
+          fechaSalida.setMonth(fechaSalida.getMonth() + cantidad);
+          break;
+        case "semanas":
+          fechaSalida.setDate(fechaSalida.getDate() + cantidad * 7);
+          break;
+        case "dias":
+          fechaSalida.setDate(fechaSalida.getDate() + cantidad);
+          break;
+        case "horas":
+          fechaSalida.setHours(fechaSalida.getHours() + cantidad);
+          break;
+        default:
+          return; // Opción inválida, no se realiza ningún cálculo
+      }
+
+      var fechaSalidaStr = fechaSalida.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" });
+      $("#fechaSalida1").val(fechaSalidaStr);
+    }
+
+    // Deshabilitar y desactivar el campo de fecha de salida para que no sea editable
+    $("#fechaSalida1").prop("disabled", true);
+  }
+
+
+
+
 
 
   $("#formAlquiler").submit(function (e) {
@@ -327,7 +372,7 @@ $(document).ready(function () {
       data: datos_formulario,
       success: function (respuesta) {
         alert(respuesta);
-        window.location.href ="http://localhost:3000/carrito"
+        window.location.href = "http://localhost:3000/carrito"
 
       },
     });
