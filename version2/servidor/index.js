@@ -20,6 +20,11 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", express.static(path.resolve("../cliente/")));
 app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
+app.use("/assets", express.static(path.resolve("../cliente/portafolio/assets")));
+
+
+
+
 
 
 
