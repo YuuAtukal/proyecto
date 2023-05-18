@@ -27,6 +27,7 @@ app.use("/assets", express.static(path.resolve("../cliente/nueva/assets")));
 const RegisOficina = require("./models/regisOficina");
 const RegisCliente = require("./models/regisCliente");
 const RegisCompra = require("./models/compras");
+const RegisPago = require("./models/pagos");
 //rutas
 
 /* ------ READ ------ */
@@ -145,8 +146,35 @@ app.post("/listado", async function (req, res) {
 
 // ruta para el carrito
 app.get("/carrito", function (req, res) {
-  let id_oficina = req.params.id;
+ 
   res.sendFile(path.resolve("../cliente/nueva/carrito.html"));
+});
+
+// ruta para llevar datos de bd a carrito
+app.post("/carrito", async function (req, res) {
+    let datos = await RegisCompra.find({ });
+    res.send(datos);
+    console.log(datos);
+  res.send()
+});
+// paga guardar los datos en la bd pago
+app.put("/carrito", async function (req, res) {
+  let datos_enviados = req.body;
+  let nuevo_pago = new RegisPago(datos_enviados);
+  await nuevo_pago.save();
+  console.log("datos de pago")
+  console.log(datos_enviados)
+  
+  res.send("pago realizado");
+});
+
+//Ruta ----> Eliminar una compra de la BD
+app.delete("/carrito", async function (req, res) {
+  let datos = await RegisCompra.find({ })
+  let id= datos[0]._id
+
+  await RegisCompra.findByIdAndRemove(id);
+  res.send("Gasto eliminado correctamente");
 });
 
 
