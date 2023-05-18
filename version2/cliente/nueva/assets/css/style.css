@@ -237,6 +237,10 @@ h6 {
   font-family: inherit;
 }
 
+.navCliente{
+  padding-left: 120px;
+}
+
 .navbar li {
   position: relative;
 }
