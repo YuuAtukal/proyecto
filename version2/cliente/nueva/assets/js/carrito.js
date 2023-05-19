@@ -38,7 +38,7 @@ $(document).ready(function () {
       method: "put",
       data: pago,
       success: function (respuesta) {
-        alert(respuesta);
+        console.log(respuesta);
         Eliminar();
         window.location.href = "http://localhost:3000/cliente";
       },
