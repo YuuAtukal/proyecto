@@ -33,6 +33,7 @@ const RegisOficina = require("./models/regisOficina");
 const RegisCliente = require("./models/regisCliente");
 const RegisCompra = require("./models/compras");
 const RegisPago = require("./models/pagos");
+const regisCliente = require("./models/regisCliente");
 //rutas
 
 /* ------ READ ------ */
@@ -187,7 +188,20 @@ app.delete("/carrito", async function (req, res) {
 app.get("/cliente", function (req, res) {
   res.sendFile(path.resolve("../cliente/nueva/cliente.html"));
 });
+// peticien para la informacion del cliente
+app.post("/cliente", async function (req, res) {
+  let datos = await regisCliente.find({ });
+  res.send(datos);
+  console.log(datos);
 
+});
+// peticion para las reservas del cliente
+app.put("/cliente", async function (req, res) {
+  let datos = await RegisPago.find({ });
+  res.send(datos);
+  console.log(datos);
+
+});
 app.get("/inicio", function (req, res) {
   res.sendFile(path.resolve("../cliente/inicio.html"));
 });
