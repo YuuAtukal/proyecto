@@ -13,7 +13,7 @@ $(document).ready(function () {
         success: function (respuesta) {
           let resp = respuesta;
           console.log(resp.id);
-          alert(resp.txt);
+          console.log(resp.txt);
 
           window.location.href = "http://localhost:3000/detalle/"+resp.id;
         },

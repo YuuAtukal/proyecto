@@ -40,7 +40,7 @@ $(document).ready(function () {
       success: function (respuesta) {
         alert(respuesta);
         Eliminar();
-        window.location.href = "http://localhost:3000/inicio";
+        window.location.href = "http://localhost:3000/cliente";
       },
     });
   });

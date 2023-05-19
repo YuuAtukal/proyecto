@@ -11,7 +11,7 @@ $(document).ready(function () {
         method: "post",
         data: datos_formulario,
         success: function (respuesta) {
-          alert(respuesta);
+          console.log(respuesta);
           window.location.href = "http://localhost:3000/login";
         },
       });
